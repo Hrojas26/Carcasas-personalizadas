@@ -3,9 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/interactjs@1.10.11/dist/interact.min.js"></script>
     <title>Document</title>
 </head>
 <body>
-     
+    <div class="contenedorprincipal">
+        <div class="contenedorhijo">
+            <div class="sliderPromo"></div>
+            <div class="cuerpo">
+                <div class="botones">
+                    <label for="marcas">Selecciona una marca:</label>
+                    <select id="marcas">
+                        <option value="">Selecciona una marca</option>
+                        <option value="Apple">Apple</option>
+                        <option value="Samsung">Samsung</option>
+                        <option value="Xiaomi">Xiaomi</option>
+                        <option value="Huawei">Huawei</option>
+                        <option value="Motorola">Motorola</option>
+                    </select>
+
+                    <label for="modelos">Selecciona un modelo:</label>
+                    <select id="modelos" disabled>
+                        <option value="">Primero selecciona una marca</option>
+                    </select>
+
+                    <input type="file" id="imagenInput" accept="image/*" disabled>
+                </div>
+
+                <div class="mockup" id="mockupDiv">
+
+
+                </div>
+            </div>
+            <div class="footer"></div>
+        </div>
+    </div>
+    <script src="/scripts.js"></script>
 </body>
 </html>
