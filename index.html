@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/interactjs@1.10.11/dist/interact.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,200&family=Oswald:wght@200;500;600&display=swap" rel="stylesheet">
+  
     <title>Document</title>
 </head>
 <body>
@@ -13,22 +17,27 @@
             <div class="sliderPromo"></div>
             <div class="cuerpo">
                 <div class="botones">
-                    <label for="marcas">Selecciona una marca:</label>
-                    <select id="marcas">
-                        <option value="">Selecciona una marca</option>
-                        <option value="Apple">Apple</option>
-                        <option value="Samsung">Samsung</option>
-                        <option value="Xiaomi">Xiaomi</option>
-                        <option value="Huawei">Huawei</option>
-                        <option value="Motorola">Motorola</option>
-                    </select>
+                    <div class="logo">
+                        <img class="imglogo" src="/img/logotipo.png" alt="">
+                    </div>
+                    <div class="btns">  
+                        <label for="marcas">Selecciona una marca:</label>
+                        <select id="marcas">
+                            <option value="">Selecciona una marca</option>
+                            <option value="Apple">Apple</option>
+                            <option value="Samsung">Samsung</option>
+                            <option value="Xiaomi">Xiaomi</option>
+                            <option value="Huawei">Huawei</option>
+                            <option value="Motorola">Motorola</option>
+                        </select>
 
-                    <label for="modelos">Selecciona un modelo:</label>
-                    <select id="modelos" disabled>
-                        <option value="">Primero selecciona una marca</option>
-                    </select>
+                        <label for="modelos">Selecciona un modelo:</label>
+                        <select id="modelos" disabled>
+                            <option value="">Primero selecciona una marca</option>
+                        </select>
 
-                    <input type="file" id="imagenInput" accept="image/*" disabled>
+                        <input type="file" id="imagenInput" accept="image/*" disabled>
+                    </div>
                 </div>
 
                 <div class="mockup" id="mockupDiv">
@@ -36,7 +45,15 @@
 
                 </div>
             </div>
-            <div class="footer"></div>
+            <div class="footer">
+                <div class="dominio">
+                    <p>www.estampadosfriendscolors.com</p>
+                </div>
+                <div class="info">
+                    <p>Tecnología impulsada por estampados y publicidad friends colors 2024 ® </p>
+                </div>
+
+            </div>
         </div>
     </div>
     <script src="/scripts.js"></script>
