@@ -8,41 +8,69 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,200&family=Oswald:wght@200;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    
+
   
     <title>Document</title>
 </head>
 <body>
     <div class="contenedorprincipal">
         <div class="contenedorhijo">
-            <div class="sliderPromo"></div>
+            <div class="sliderPromo">
+                <div class="cinta" id="cinta">
+                    <div class="boton" onclick="cambiarTexto('anterior')"> <- </div>
+                    <div class="texto" id="texto">TEXTO</div>
+                    <div class="boton" onclick="cambiarTexto('siguiente')"> -> </div>
+                </div>
+            </div>
             <div class="cuerpo">
                 <div class="botones">
                     <div class="logo">
-                        <img class="imglogo" src="/img/logotipo.png" alt="">
+                        <a href="/index.html">
+                            <img class="imglogo" src="/img/logotipo.png" alt="Logotipo">
+                        </a>
                     </div>
                     <div class="btns">  
-                        <label for="marcas">Selecciona una marca:</label>
-                        <select id="marcas">
-                            <option value="">Selecciona una marca</option>
-                            <option value="Apple">Apple</option>
-                            <option value="Samsung">Samsung</option>
-                            <option value="Xiaomi">Xiaomi</option>
-                            <option value="Huawei">Huawei</option>
-                            <option value="Motorola">Motorola</option>
-                        </select>
 
-                        <label for="modelos">Selecciona un modelo:</label>
-                        <select id="modelos" disabled>
-                            <option value="">Primero selecciona una marca</option>
-                        </select>
+                        <div class="btnbox">
+                            <label for="marcas">Marca :</label>
+                            <select id="marcas">
+                                <option value="">Elige una opción</option>
+                                <option value="Apple">Apple</option>
+                                <option value="Samsung">Samsung</option>
+                                <option value="Xiaomi">Xiaomi</option>
+                                <option value="Huawei">Huawei</option>
+                                <option value="Motorola">Motorola</option>
+                            </select>
+                        </div>
+                        
+                        <div class="btnbox">
+                            <label for="modelos">Celular :</label>
+                            <select id="modelos" disabled>
+                                <option value="">Elige una opción</option>
+                            </select>
+                        </div>
 
-                        <input type="file" id="imagenInput" accept="image/*" disabled>
+                        <div class="btnbox btnimg ">
+                            <label for="imagenInput" class="custom-file-input">
+                                <span>Subir Imagen</span>
+                                <input type="file" id="imagenInput" accept="image/*" disabled>
+                            </label>
+                        </div>
                     </div>
                 </div>
 
                 <div class="mockup" id="mockupDiv">
-
-
+                    <div class="slider-container">
+                        <div class="slider">
+                          <img class="imgslider" src="/img/menu1.jpg" alt="Image 1">
+                          <img class="imgslider" src="/img/menu2.jpg" alt="Image 2">
+                          <img class="imgslider" src="/img/menu.gif" alt="Image 3">
+                        </div>
+                        <button class="prev-btn" onclick="prevSlide()"> < </button>
+                        <button class="next-btn" onclick="nextSlide()"> > </button>  
+                      </div>
                 </div>
             </div>
             <div class="footer">
@@ -56,6 +84,7 @@
             </div>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
     <script src="/scripts.js"></script>
 </body>
 </html>

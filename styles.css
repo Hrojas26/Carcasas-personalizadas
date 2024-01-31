@@ -2,11 +2,12 @@ body, html {
   margin: 0;
   padding: 0;
   height: 100%;
+  font-family: 'DM Sans', sans-serif;
 }
 h1, h2, h3, h4{
   margin: 0;
   padding: 0;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'DM Sans', sans-serif;
 }
 p{
   font-family: 'DM Sans', sans-serif;
@@ -30,7 +31,7 @@ display: block;
 .sliderPromo{
 width: 100%;
 height: 5%;
-background: rgb(43, 255, 0);
+background: rgb(255, 255, 255);
 }
 .cuerpo{
   width: 100%;
@@ -41,28 +42,37 @@ background: rgb(43, 255, 0);
 .footer{
   width: 100%;
   height: 7%;
-  background: rgb(255, 128, 206);
+  background: rgb(255, 255, 255);
   display: flex;
   text-align: center;
+  color: rgba(0, 0, 0, 0.442);
+  overflow: hidden;
 }
 .dominio{
   width: 40%;
   height: 100%;
-  background-color: rgb(41, 206, 129);
+  background-color: rgb(255, 255, 255);
+  border-right: 1px solid rgba(0, 0, 0, 0.092);
+
 }
 .info{
   width: 60%;
   height: 100%;
-  background-color: rgb(255, 128, 206);
+  background-color: rgb(255, 255, 255);
+  overflow: hidden;
 }
 .botones{
 width: 40%;
 height: 100%;
-background: rgb(179, 197, 245);
+background: rgb(255, 255, 255);
 display: flex;
 flex-direction: column;
 align-items: center;
+border-right: 1px solid rgba(0, 0, 0, 0.092);
+overflow: hidden;
+
 }
+
 .mockup{
   width: 60%;
   height: 100%;
@@ -72,6 +82,11 @@ align-items: center;
   justify-content: center;
   align-items: center;
   
+}
+a{
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 .modeloCargado{
   width: 100%;
@@ -103,7 +118,8 @@ img.marcaCargada {
 .modificable{
   width: 60%;
   position: relative;
-  border: 2px dashed rgba(0, 0, 0, 0.178);
+  border: 2px dashed rgba(0, 0, 0, 0.046);
+  
 }
 .modificable:active {
   border-color: #25D266; /* Cambia el color del borde cuando la imagen está siendo manipulada */
@@ -126,13 +142,13 @@ img.marcaCargada {
   position: absolute;
 }
 .logo{
+  margin-top: 10%;
   display: flex;
-  width: 100%;
   height: auto;
-  background: rgb(255, 244, 149);
   padding: 10px;
   justify-content: center;
   align-items: center;
+  z-index: 2;
 }
 .imglogo{
   width: 50%;
@@ -141,4 +157,140 @@ img.marcaCargada {
 display: flex;
 flex-direction: column;
 width: 80%;
+z-index: 2;
+}
+.btnbox{
+  margin: 25px 10px 25px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+ }
+ select{
+  padding: 10px;
+  border-radius: 5px;
+  width: 80%;
+  font-family: 'DM Sans', sans-serif;
+  border: 1px solid #ddd;
+  cursor: pointer;  
+ }
+ 
+.custom-file-input {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 16px; /* Ajusta el tamaño del texto según tus necesidades */
+  cursor: pointer;
+  opacity: 0.5; /* Reducir la opacidad para indicar visualmente que está deshabilitado */
+}
+
+.custom-file-input input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.custom-file-input span {
+  display: inline-block;
+  padding: 10px 20px; /* Ajusta el padding según tus necesidades */
+  background-color: #ffffff; /* Color de fondo del botón */
+  color: #000000; /* Color del texto del botón */
+  border-radius: 5px; /* Borde redondeado */
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.custom-file-input input:disabled + span {
+  background-color: #ccc; /* Cambia el color cuando el input está deshabilitado */
+  cursor: not-allowed; /* Cambia el cursor cuando el input está deshabilitado */
+  cursor: pointer;
+}
+/*SLIDER PROMO */
+.cinta {
+  width: 100%;
+  height: 5%; /* Ajusta la altura según tus necesidades */
+  background-color: #000000;
+  color: whitesmoke;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  font-size: 14px;
+}
+
+.texto {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0px 20px 0px 20px;
+}
+
+.boton {
+  cursor: pointer;
+}
+
+/* SLIDER */
+.slider-container {
+  position: relative;
+  max-width: 600px;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+button {
+  width: 6%;
+  height: 8%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background-color: #0000001f;
+  color: #ffffff;
+  border-radius: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  transition: box-shadow 0.3s ease; /* Transición suave de la sombra */
+
+}
+button:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada al pasar el ratón */
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
+.imgslider{
+  border-radius: 10%;
+  margin-right: 20px;
+}
+img.imgfondo{
+  width: 100%;
+  top: -100%;
+  position: relative;
+  z-index: 1;
+}
+img.imgfondo {
+  filter: blur(50px);
+  position: relative;
+}
+.imgsubida{
+  width: 100px;
+  height: 100px;
 }

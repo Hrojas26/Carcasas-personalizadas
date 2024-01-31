@@ -1,3 +1,4 @@
+
 // Obtén referencias a los elementos select y al div mockup
 const marcaSelect = document.getElementById('marcas');
 const modeloSelect = document.getElementById('modelos');
@@ -188,30 +189,36 @@ const modelosPorMarca = {
 
 // Agrega un evento de cambio al input de tipo file
 imagenInput.addEventListener('change', function () {
-    const file = imagenInput.files[0];
-    if (file) {
-        // Crea un objeto URL para la imagen seleccionada
-        const imageUrl = URL.createObjectURL(file);
+  const file = imagenInput.files[0];
+  if (file) {
+      // Crea un objeto URL para la imagen seleccionada
+      const imageUrl = URL.createObjectURL(file);
 
-        // Crea un elemento img y establece la URL como su fuente
-        const imagenElement = document.createElement('img');
-        imagenElement.src = imageUrl;
+      // Crea un elemento img y establece la URL como su fuente
+      const imagenElement = document.createElement('img');
+      imagenElement.src = imageUrl;
 
-        
-        // Agrega una clase a la imagen recién creada
-        imagenElement.classList.add('modificable'); // Reemplaza 'miClase'
+      // Agrega la clase 'modificable' solo a la imagen que se crea en .nuevaImagen
+      imagenElement.classList.add('modificable');
 
-        // Crea un nuevo div para la imagen cargada
-        const nuevaImagenDiv = document.createElement('div');
-        nuevaImagenDiv.classList.add('nuevaImagen');
+      // Crea un nuevo div para la imagen cargada en .nuevaImagen
+      const nuevaImagenDiv = document.createElement('div');
+      nuevaImagenDiv.classList.add('nuevaImagen');
+      nuevaImagenDiv.appendChild(imagenElement);
 
-        // Agrega la imagen al nuevo div
-        nuevaImagenDiv.appendChild(imagenElement);
+      // Agrega la imagen al div mockup
+      mockupDiv.appendChild(nuevaImagenDiv);
 
-        // Agrega el nuevo div al div mockup
-        mockupDiv.appendChild(nuevaImagenDiv);
-    }
+      // Clona la imagen y quita la clase 'modificable' para la versión en .botones
+      const botonesDiv = document.querySelector('.info');
+      const imagenEnBotones = imagenElement.cloneNode(true);
+      imagenEnBotones.classList.remove('modificable');
+      imagenEnBotones.classList.add('imgfondo');
+      botonesDiv.appendChild(imagenEnBotones);
+  }
 });
+
+
 
 
 // Resto del código para el cambio de marca y modelo (tal como lo tienes actualmente)
@@ -335,3 +342,62 @@ interact('.modificable')
     target.setAttribute('data-x', x);
     target.setAttribute('data-y', y);
   });
+
+  // SLIDER PROMO
+
+var textos = ["Envíos gratis por compras superiores a $100.000", "Personaliza tu celular"]; // Agrega tus textos aquí
+var currentIndex = 0;
+var cinta = document.getElementById("cinta");
+var textoElement = document.getElementById("texto");
+
+function cambiarTexto(direccion) {
+  if (direccion === 'anterior') {
+    currentIndex = (currentIndex - 1 + textos.length) % textos.length;
+  } else {
+    currentIndex = (currentIndex + 1) % textos.length;
+  }
+
+  mostrarTexto();
+}
+
+function mostrarTexto() {
+  textoElement.textContent = textos[currentIndex];
+}
+
+function cambiarAutomaticamente() {
+  setInterval(function() {
+    cambiarTexto('siguiente');
+  }, 4000);
+}
+
+mostrarTexto(); // Muestra el primer texto
+cambiarAutomaticamente(); // Inicia el cambio automático
+
+// SLIDERIMG
+let currentIndex2 = 0;
+const slides = document.querySelectorAll('.slider img');
+const totalSlides = slides.length;
+
+function showSlide(index) {
+  if (index < 0) {
+    currentIndex2 = totalSlides - 1;
+  } else if (index >= totalSlides) {
+    currentIndex2 = 0;
+  } else {
+    currentIndex2 = index;
+  }
+
+  const offset = -currentIndex2 * 100 + '%';
+  document.querySelector('.slider').style.transform = 'translateX(' + offset + ')';
+}
+
+function nextSlide() {
+  showSlide(currentIndex2 + 1);
+}
+
+function prevSlide() {
+  showSlide(currentIndex2 - 1);
+}
+
+// Automatic slide change every 3 seconds
+setInterval(nextSlide, 3000);
