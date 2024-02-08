@@ -209,12 +209,23 @@ imagenInput.addEventListener('change', function () {
       // Agrega la imagen al div mockup
       mockupDiv.appendChild(nuevaImagenDiv);
 
-      // Clona la imagen y quita la clase 'modificable' para la versión en .botones
-      const botonesDiv = document.querySelector('.info');
-      const imagenEnBotones = imagenElement.cloneNode(true);
-      imagenEnBotones.classList.remove('modificable');
-      imagenEnBotones.classList.add('imgfondo');
-      botonesDiv.appendChild(imagenEnBotones);
+      // Oculta la clase "btns"
+      const btns = document.querySelector('.btns');
+      btns.style.display = 'none';
+      const botones = document.querySelector('.botones')
+      botones.style.height = '10%';
+      const ajustesresponsive = document.querySelector('.mockup')
+      ajustesresponsive.style.height = '100%';
+      ajustesresponsive.style.zIndex = '4';
+      
+      const modelocargado = document.querySelector('.modeloCargado')
+      modelocargado.style.width = '216%';
+      modelocargado.style.left = '-54%';
+
+      const imagencargada = document.querySelector('.nuevaImagen')
+      imagencargada.style.width = '100%';
+
+      
   }
 });
 
@@ -309,38 +320,40 @@ modeloSelect.addEventListener('change', function () {
 
 });
 
+// Modifica el código para utilizar eventos táctiles específicos
+
+// Modifica el código para utilizar eventos táctiles específicos
 interact('.modificable')
   .draggable({
-    modifiers: [
-      interact.modifiers.restrictRect({
-        restriction: 'parent'
-      })
-    ]
+    listeners: {
+      move: function (event) {
+        var target = event.target;
+        var x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
+        var y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+
+        target.style.webkitTransform = target.style.transform =
+          'translate(' + x + 'px, ' + y + 'px)';
+
+        target.setAttribute('data-x', x);
+        target.setAttribute('data-y', y);
+      }
+    }
   })
   .resizable({
-    edges: { left: true, right: true, bottom: true, top: true }
-  })
-  .on('resizemove', function (event) {  // Corregir aquí: 'resizemove' en lugar de 'resmove'
-    var target = event.target;
-    var x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
-    var y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+    edges: { left: true, right: true, bottom: true, top: true },
+    listeners: {
+      move: function (event) {
+        var target = event.target;
+        var x = (parseFloat(target.getAttribute('data-x')) || 0);
+        var y = (parseFloat(target.getAttribute('data-y')) || 0);
 
-    target.style.width = event.rect.width + 'px';
-    target.style.height = event.rect.height + 'px';
+        target.style.width = event.rect.width + 'px';
+        target.style.height = event.rect.height + 'px';
 
-    target.style.webkitTransform = target.style.transform =
-      'translate(' + x + 'px,' + y + 'px)';
-  })
-  .on('dragmove', function (event) {
-    var target = event.target;
-    var x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
-    var y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
-
-    target.style.webkitTransform = target.style.transform =
-      'translate(' + x + 'px,' + y + 'px)';
-
-    target.setAttribute('data-x', x);
-    target.setAttribute('data-y', y);
+        target.style.webkitTransform = target.style.transform =
+          'translate(' + x + 'px,' + y + 'px)';
+      }
+    }
   });
 
   // SLIDER PROMO
@@ -401,3 +414,20 @@ function prevSlide() {
 
 // Automatic slide change every 3 seconds
 setInterval(nextSlide, 3000);
+
+
+// Agrega un evento de cambio al select de modelos
+modeloSelect.addEventListener('change', function () {
+  // Obtén el modelo seleccionado
+  const modeloSeleccionado = modeloSelect.value;
+
+  // Habilita el botón de subir imagen cuando se selecciona un modelo
+  if (modeloSeleccionado) {
+    subirImagenBtn.classList.add('btnactive');
+  } else {
+    subirImagenBtn.classList.remove('btnactive');
+  }
+});
+
+
+

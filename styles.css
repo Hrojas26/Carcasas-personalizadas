@@ -36,7 +36,7 @@ background: rgb(255, 255, 255);
 .cuerpo{
   width: 100%;
   height: 88%;
-  background: blue;
+  background: rgb(255, 255, 255);
   display: flex;
 }
 .footer{
@@ -70,6 +70,7 @@ flex-direction: column;
 align-items: center;
 border-right: 1px solid rgba(0, 0, 0, 0.092);
 overflow: hidden;
+justify-content: space-evenly;
 
 }
 
@@ -180,7 +181,7 @@ z-index: 2;
   cursor: pointer;
   font-size: 16px; /* Ajusta el tamaño del texto según tus necesidades */
   cursor: pointer;
-  opacity: 0.5; /* Reducir la opacidad para indicar visualmente que está deshabilitado */
+ 
 }
 
 .custom-file-input input {
@@ -189,6 +190,8 @@ z-index: 2;
   top: 0;
   opacity: 0;
   cursor: pointer;
+  pointer-events: none;
+  
 }
 
 .custom-file-input span {
@@ -199,6 +202,9 @@ z-index: 2;
   border-radius: 5px; /* Borde redondeado */
   border: 1px solid #ddd;
   cursor: pointer;
+  opacity: 0;
+  transition: all 1.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Ajusta los valores de cubic-bezier para cambiar la animación */
+  
 }
 
 .custom-file-input input:disabled + span {
@@ -294,3 +300,72 @@ img.imgfondo {
   width: 100px;
   height: 100px;
 }
+.btnactive{
+  opacity: 1 !important;
+  background-color: black !important;
+  color: white !important;
+  transform: scale(1.0); /* Ajusta el factor de escala para controlar el tamaño del rebote */
+}
+
+  @media screen and (max-width: 500px) {
+  
+   .botones{
+    height: 80%;
+   }
+   .cuerpo{
+    flex-direction: column;
+    height: 85%;
+    overflow: hidden;
+   }
+   .mockup{
+    width: 100%;
+    height: 80%;
+   }
+   .botones{
+    width: 100%;
+    height: 80%;
+   }
+   .footer{
+    font-size: 15px;
+    height: 10%;
+   }
+   .dominio{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   }
+ 
+   .slider-container{
+    width: 80%;
+    top: -12%;
+   }
+   .imglogo {
+    width: 20%;
+   }
+   .logo{
+    margin-top: 15px;
+   }
+   .btnbox{
+    margin: 6px 10px 25px 10px;
+   }
+   .modeloCargado{
+    width: 151%;
+    top: 0px;
+   }
+   body{
+    overflow-x: hidden;
+    overflow-y: hidden;
+   }
+   .modificable{
+    touch-action: none;
+    user-select: none
+   }
+   .info{
+    display: none;
+   }
+   .contenedorhijo{
+    height: 93%;
+   }
+  }
