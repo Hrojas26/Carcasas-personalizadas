@@ -225,7 +225,20 @@ imagenInput.addEventListener('change', function () {
       const imagencargada = document.querySelector('.nuevaImagen')
       imagencargada.style.width = '100%';
 
-      
+      // Habilita la funcionalidad de gesto para hacer zoom en la imagen
+      interact('.modificable').gesturable({
+        onmove: function (event) {
+          var target = event.target;
+          var scale = parseFloat(target.dataset.scale) || 1;
+          scale *= 1 + event.ds; // ds (deltaScale) representa el cambio en la escala
+
+          target.style.webkitTransform =
+          target.style.transform =
+            'scale(' + scale + ')';
+
+          target.dataset.scale = scale;
+        }
+      });
   }
 });
 
