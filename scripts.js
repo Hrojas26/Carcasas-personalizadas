@@ -210,20 +210,20 @@ imagenInput.addEventListener('change', function () {
       mockupDiv.appendChild(nuevaImagenDiv);
 
       // Oculta la clase "btns"
-      const btns = document.querySelector('.btns');
-      btns.style.display = 'none';
-      const botones = document.querySelector('.botones')
-      botones.style.height = '10%';
-      const ajustesresponsive = document.querySelector('.mockup')
-      ajustesresponsive.style.height = '100%';
-      ajustesresponsive.style.zIndex = '4';
+      // const btns = document.querySelector('.btns');
+      // btns.style.display = 'none';
+      // const botones = document.querySelector('.botones')
+      // botones.style.height = '10%';
+      // const ajustesresponsive = document.querySelector('.mockup')
+      // ajustesresponsive.style.height = '100%';
+      // ajustesresponsive.style.zIndex = '4';
       
-      const modelocargado = document.querySelector('.modeloCargado')
-      modelocargado.style.width = '216%';
-      modelocargado.style.left = '-54%';
+      // const modelocargado = document.querySelector('.modeloCargado')
+      // modelocargado.style.width = '216%';
+      // modelocargado.style.left = '-54%';
 
-      const imagencargada = document.querySelector('.nuevaImagen')
-      imagencargada.style.width = '100%';
+      // const imagencargada = document.querySelector('.nuevaImagen')
+      // imagencargada.style.width = '100%';
 
       
   }
